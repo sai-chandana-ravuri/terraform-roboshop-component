@@ -6,7 +6,7 @@ locals {
         Terraform = "true"
     }
     ami_id = data.aws_ami.joindevops.id
-    sg_id = data.aws_ssm_parameter.sg_id
+    sg_id = data.aws_ssm_parameter.sg_id.value
     health_check_path = var.component == "frontend" ? "/" : "/health"
     port_number = var.component == "frontend" ? 80 : 8080
     vpc_id = data.aws_ssm_parameter.vpc_id.value
